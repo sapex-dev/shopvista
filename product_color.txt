@@ -1,0 +1,38 @@
+<div>
+                        <h3 className="text-sm font-medium text-gray-900">
+                          Color
+                        </h3>
+                        <fieldset className="mt-4">
+                          <legend className="sr-only">Choose a color</legend>
+                          <div className="flex items-center space-x-3">
+                            {productData.color.map((color, i) => (
+                              <div key={i}>
+                                <Controller
+                                  control={control}
+                                  name="color-choice"
+                                  render={({ field }) => (
+                                    <label
+                                      className={`relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ${
+                                        field.value === color
+                                          ? `ring-${color} ring ring-offset-1`
+                                          : "ring-2"
+                                      }`}
+                                    >
+                                      <input
+                                        type="radio"
+                                        {...field}
+                                        value={color.name}
+                                        className="sr-only"
+                                      />
+                                      <span
+                                        className={`h-8 w-8 bg-${color.name}-600 rounded-full border border-black border-opacity-10`}
+                                        // className={`h-8 w-8 bg-red-600 rounded-full border border-black border-opacity-10`}
+                                      />
+                                    </label>
+                                  )}
+                                />
+                              </div>
+                            ))}
+                          </div>
+                        </fieldset>
+                      </div>
